@@ -1,6 +1,4 @@
-README
-
-#Getting and Cleaning Data Course Project
+# Getting and Cleaning Data Course Project
 
 run_analysis.R does the following:
 
