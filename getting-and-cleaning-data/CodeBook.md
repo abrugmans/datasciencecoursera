@@ -1,119 +1,26 @@
-# Code Book
 
-## Subject and Activity
+# File with R code "run_analysis.R" perform 5 following steps (in accordance assigned task of course work):
 
-These variables identify the unique subject/activity pair the variables relate to:
+    Merging the training and the test sets to create one data set.
+    1.1 Reading files
+    1.1.1 Reading trainings tables
+    1.1.2 Reading testing tables
+    1.1.3 Reading feature vector
+    1.1.4 Reading activity labels
+    1.2 Assigning column names
+    1.3 Merging all data in one set
+    Extracting only the measurements on the mean and standard deviation for each measurement
+    2.1 Reading column names
+    2.2 Create vector for defining ID, mean and standard deviation
+    2.3 Making nessesary subset from setAllInOne
+    Using descriptive activity names to name the activities in the data set
+    Appropriately labeling the data set with descriptive variable names
+    Creating a second, independent tidy data set with the average of each variable for each activity and each subject
+    5.1 Making second tidy data set
+    5.2 Writing second tidy data set in txt file
 
- - Subject: the integer subject ID.
- - Activity: the string activity name:
-  - Walking
-  - Walking Upstairs
-  - Walking Downstairs
-  - Sitting
-  - Standing
-  - Laying
+# Variables:
 
-## Measurement Means
-
-All variables are the mean of a measurement for each subject and activity. This is indicated by the initial Mean in the variable name. All values are floating point numbers.
-
- - Time domain body acceleration mean along X, Y, and Z:
-  - MeanTimeBodyAccMeanX
-  - MeanTimeBodyAccMeanY
-  - MeanTimeBodyAccMeanZ
- - Time domain body acceleration standard deviation along X, Y, and Z:
-  - MeanTimeBodyAccStdDevX
-  - MeanTimeBodyAccStdDevY
-  - MeanTimeBodyAccStdDevZ
- - Time domain gravity acceleration mean along X, Y, and Z:
-  - MeanTimeGravityAccMeanX
-  - MeanTimeGravityAccMeanY
-  - MeanTimeGravityAccMeanZ
- - Time domain gravity acceleration standard deviation along X, Y, and Z:
-  - MeanTimeGravityAccStdDevX
-  - MeanTimeGravityAccStdDevY
-  - MeanTimeGravityAccStdDevZ
- - Time domain body jerk mean along X, Y, and Z:
-  - MeanTimeBodyAccJerkMeanX
-  - MeanTimeBodyAccJerkMeanY
-  - MeanTimeBodyAccJerkMeanZ
- - Time domain body jerk standard deviation along X, Y, and Z:
-  - MeanTimeBodyAccJerkStdDevX
-  - MeanTimeBodyAccJerkStdDevY
-  - MeanTimeBodyAccJerkStdDevZ
- - Time domain gyroscope mean along X, Y, and Z:
-  - MeanTimeBodyGyroMeanX
-  - MeanTimeBodyGyroMeanY
-  - MeanTimeBodyGyroMeanZ
- - Time domain gyroscope standard deviation along X, Y, and Z:
-  - MeanTimeBodyGyroStdDevX
-  - MeanTimeBodyGyroStdDevY
-  - MeanTimeBodyGyroStdDevZ
- - Time domain gyroscope jerk mean along X, Y, and Z:
-  - MeanTimeBodyGyroJerkMeanX
-  - MeanTimeBodyGyroJerkMeanY
-  - MeanTimeBodyGyroJerkMeanZ
- - Time domain gyroscope jerk standard deviation along X, Y, and Z:
-  - MeanTimeBodyGyroJerkStdDevX
-  - MeanTimeBodyGyroJerkStdDevY
-  - MeanTimeBodyGyroJerkStdDevZ
- - Time domain body acceleration magnitude mean:
-  - MeanTimeBodyAccMagMean
- - Time domain body acceleration magnitude standard deviation:
-  - MeanTimeBodyAccMagStdDev
- - Time domain gravity acceleration magnitude mean:
-  - MeanTimeGravityAccMagMean
- - Time domain gravity acceleration magnitude standard deviation:
-  - MeanTimeGravityAccMagStdDev
- - Time domain body jerk magnitude mean:
-  - MeanTimeBodyAccJerkMagMean
- - Time domain body jerk magnitude standard deviation:
-  - MeanTimeBodyAccJerkMagStdDev
- - Time domain gyroscope magnitude mean:
-  - MeanTimeBodyGyroMagMean
- - Time domain gyroscope magnitude standard deviation:
-  - MeanTimeBodyGyroMagStdDev
- - Time domain gyroscope jerk magnitude mean:
-  - MeanTimeBodyGyroJerkMagMean
- - Time domain gyroscope jerk magnitude standard deviation:
-  - MeanTimeBodyGyroJerkMagStdDev
- - Frequency domain body acceleration mean along X, Y, and Z:
-  - MeanFrequencyBodyAccMeanX
-  - MeanFrequencyBodyAccMeanY
-  - MeanFrequencyBodyAccMeanZ
- - Frequency domain body acceleration standard deviation along X, Y, and Z:
-  - MeanFrequencyBodyAccStdDevX
-  - MeanFrequencyBodyAccStdDevY
-  - MeanFrequencyBodyAccStdDevZ
- - Frequency domain body jerk mean along X, Y, and Z:
-  - MeanFrequencyBodyAccJerkMeanX
-  - MeanFrequencyBodyAccJerkMeanY
-  - MeanFrequencyBodyAccJerkMeanZ
- - Frequency domain body jerk standard deviation along X, Y, and Z:
-  - MeanFrequencyBodyAccJerkStdDevX
-  - MeanFrequencyBodyAccJerkStdDevY
-  - MeanFrequencyBodyAccJerkStdDevZ
- - Frequency domain gyroscope mean along X, Y, and Z:
-  - MeanFrequencyBodyGyroMeanX
-  - MeanFrequencyBodyGyroMeanY
-  - MeanFrequencyBodyGyroMeanZ
- - Frequency domain gyroscope standard deviation along X, Y, and Z:
-  - MeanFrequencyBodyGyroStdDevX
-  - MeanFrequencyBodyGyroStdDevY
-  - MeanFrequencyBodyGyroStdDevZ
- - Frequency domain body acceleration magnitude mean:
-  - MeanFrequencyBodyAccMagMean
- - Frequency domain body acceleration magnitude standard deviation:
-  - MeanFrequencyBodyAccMagStdDev
- - Frequency domain body jerk magnitude mean:
-  - MeanFrequencyBodyAccJerkMagMean
- - Frequency domain body jerk magnitude standard deviation:
-  - MeanFrequencyBodyAccJerkMagStdDev
- - Frequency domain gyroscope magnitude mean:
-  - MeanFrequencyBodyGyroMagMean
- - Frequency domain gyroscope magnitude standard deviation:
-  - MeanFrequencyBodyGyroMagStdDev
- - Frequency domain gyroscope jerk magnitude mean:
-  - MeanFrequencyBodyGyroJerkMagMean
- - Frequency domain gyroscope jerk magnitude standard deviation:
-  - MeanFrequencyBodyGyroJerkMagStdDev
+    x_train, y_train, x_test, y_test, subject_train and subject_test contain the data from the downloaded files.
+    x_data, y_data and subject_data merge the previous datasets to further analysis.
+    features contains the correct names for the x_data dataset, which are applied to the column names stored in
